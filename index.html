@@ -6,278 +6,180 @@
 <title>Robin K.P — IT Infrastructure & Systems Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#12161d;
-    --surface:#1a2029;
-    --surface-2:#212936;
-    --line:#2b3341;
-    --text:#e7eaee;
-    --text-dim:#909aab;
-    --text-faint:#5c6577;
-    --accent:#5eead4;
-    --accent-dim:#2f7a6f;
-    --amber:#e3b341;
-    --font-sans:'IBM Plex Sans', system-ui, sans-serif;
-    --font-mono:'IBM Plex Mono', ui-monospace, monospace;
-    --maxw:920px;
+    --bg:#f1f4f8;
+    --surface:#ffffff;
+    --surface-2:#f8fafc;
+    --line:#dde3ec;
+    --ink:#1f2937;
+    --ink-dim:#5b6472;
+    --ink-faint:#8a93a3;
+    --accent:#2563eb;
+    --accent-soft:#eaf0fe;
+    --font:'Inter', Arial, sans-serif;
+    --maxw:820px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
     background:var(--bg);
-    color:var(--text);
-    font-family:var(--font-sans);
+    color:var(--ink);
+    font-family:var(--font);
     line-height:1.6;
-    -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;}
-  ::selection{background:var(--accent-dim); color:var(--text);}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
 
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
-
-  /* ---------- top bar ---------- */
+  /* topbar */
   .topbar{
+    background:var(--surface);
     border-bottom:1px solid var(--line);
     position:sticky; top:0; z-index:10;
-    background:rgba(18,22,29,0.9);
-    backdrop-filter:blur(6px);
   }
   .topbar .wrap{
     display:flex; align-items:center; justify-content:space-between;
-    height:56px;
+    height:60px;
   }
-  .topbar .id{
-    font-family:var(--font-mono);
-    font-size:13px;
-    color:var(--text-dim);
-    display:flex; align-items:center; gap:8px;
-  }
-  .dot{
-    width:7px; height:7px; border-radius:50%;
-    background:var(--accent);
-    box-shadow:0 0 0 3px rgba(94,234,212,0.15);
-  }
-  .topbar nav{display:flex; gap:22px; font-size:13px;}
-  .topbar nav a{color:var(--text-dim); text-decoration:none; transition:color .15s;}
-  .topbar nav a:hover{color:var(--text);}
+  .topbar .name{font-weight:700; font-size:15px;}
+  .topbar nav{display:flex; gap:24px; font-size:14px;}
+  .topbar nav a{color:var(--ink-dim); text-decoration:none; transition:color .15s;}
+  .topbar nav a:hover{color:var(--accent);}
 
-  /* ---------- hero ---------- */
-  .hero{padding:64px 0 40px; border-bottom:1px solid var(--line);}
-  .hero .kicker{
-    font-family:var(--font-mono);
-    font-size:13px;
+  /* hero */
+  .hero{padding:64px 0 48px;}
+  .badge{
+    display:inline-block;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:0.02em;
     color:var(--accent);
-    margin-bottom:18px;
+    background:var(--accent-soft);
+    padding:6px 14px;
+    border-radius:20px;
+    margin-bottom:20px;
   }
   .hero h1{
-    font-size:44px;
-    font-weight:600;
+    font-size:38px;
+    font-weight:700;
     letter-spacing:-0.01em;
-    line-height:1.15;
-    max-width:14ch;
   }
   .hero .role{
     margin-top:10px;
-    font-size:18px;
-    color:var(--text-dim);
-    max-width:44ch;
+    font-size:17px;
+    color:var(--ink-dim);
+    max-width:48ch;
   }
   .hero .summary{
-    margin-top:22px;
+    margin-top:18px;
     font-size:15px;
-    color:var(--text-dim);
-    max-width:58ch;
+    color:var(--ink-dim);
+    max-width:60ch;
   }
   .hero .actions{
-    margin-top:30px;
+    margin-top:28px;
     display:flex; gap:12px; flex-wrap:wrap;
   }
   .btn{
-    font-family:var(--font-mono);
-    font-size:13px;
-    padding:10px 16px;
-    border-radius:4px;
-    text-decoration:none;
-    border:1px solid var(--line);
-    color:var(--text);
-    transition:border-color .15s, background .15s;
-  }
-  .btn.primary{
-    background:var(--accent);
-    color:#0d1117;
-    border-color:var(--accent);
+    font-size:14px;
     font-weight:600;
+    padding:11px 20px;
+    border-radius:8px;
+    text-decoration:none;
+    transition:background .15s, border-color .15s;
   }
-  .btn.primary:hover{background:#7ff0da;}
-  .btn:not(.primary):hover{border-color:var(--text-faint);}
+  .btn.primary{background:var(--accent); color:#fff;}
+  .btn.primary:hover{background:#1d4ed8;}
+  .btn.secondary{background:var(--surface); color:var(--ink); border:1px solid var(--line);}
+  .btn.secondary:hover{border-color:var(--accent); color:var(--accent);}
 
-  /* status strip */
-  .statusgrid{
-    margin-top:44px;
+  .statgrid{
+    margin-top:40px;
     display:grid;
     grid-template-columns:repeat(4,1fr);
+    background:var(--surface);
     border:1px solid var(--line);
-    border-radius:6px;
+    border-radius:10px;
     overflow:hidden;
   }
-  .statusgrid .cell{
-    padding:18px 20px;
-    border-right:1px solid var(--line);
-  }
-  .statusgrid .cell:last-child{border-right:none;}
-  .statusgrid .num{
-    font-family:var(--font-mono);
-    font-size:24px;
-    font-weight:600;
-    color:var(--text);
-  }
-  .statusgrid .label{
-    margin-top:4px;
-    font-size:12px;
-    color:var(--text-faint);
-  }
+  .statgrid .cell{padding:18px 20px; border-right:1px solid var(--line);}
+  .statgrid .cell:last-child{border-right:none;}
+  .statgrid .num{font-size:22px; font-weight:700; color:var(--accent);}
+  .statgrid .label{margin-top:4px; font-size:12px; color:var(--ink-faint);}
 
-  /* ---------- section shell ---------- */
-  section{padding:56px 0; border-bottom:1px solid var(--line);}
-  .section-head{
-    display:flex; align-items:baseline; justify-content:space-between;
-    margin-bottom:32px;
-  }
-  .section-head h2{
-    font-size:22px;
-    font-weight:600;
-  }
-  .section-head .tag{
-    font-family:var(--font-mono);
-    font-size:12px;
-    color:var(--text-faint);
-  }
+  /* sections */
+  section{padding:52px 0; border-top:1px solid var(--line);}
+  .section-head{margin-bottom:28px;}
+  .section-head h2{font-size:21px; font-weight:700;}
 
-  /* ---------- experience (log style) ---------- */
-  .log-entry{
+  /* experience */
+  .entry{
     display:grid;
     grid-template-columns:150px 1fr;
     gap:24px;
     padding:22px 0;
     border-top:1px solid var(--line);
   }
-  .log-entry:first-of-type{border-top:none;}
-  .log-entry .when{
-    font-family:var(--font-mono);
-    font-size:12.5px;
-    color:var(--text-faint);
-    padding-top:3px;
+  .entry:first-of-type{border-top:none; padding-top:0;}
+  .entry .when{font-size:13px; color:var(--ink-faint); padding-top:3px;}
+  .entry .when .current{
+    display:inline-block; margin-top:8px;
+    font-size:11px; font-weight:600; color:var(--accent);
+    background:var(--accent-soft); padding:3px 8px; border-radius:4px;
   }
-  .log-entry .when .current{
-    display:inline-block;
-    margin-top:8px;
-    font-size:11px;
-    color:var(--accent);
-    border:1px solid var(--accent-dim);
-    padding:2px 6px;
-    border-radius:3px;
-  }
-  .log-entry h3{
-    font-size:16.5px;
-    font-weight:600;
-  }
-  .log-entry .org{
-    font-size:14px;
-    color:var(--text-dim);
-    margin-top:2px;
-  }
-  .log-entry ul{
-    margin-top:12px;
-    padding-left:18px;
-    color:var(--text-dim);
-    font-size:14px;
-  }
-  .log-entry li{margin-top:6px;}
+  .entry h3{font-size:16px; font-weight:700;}
+  .entry .org{font-size:14px; color:var(--ink-dim); margin-top:2px;}
+  .entry ul{margin-top:12px; padding-left:18px; color:var(--ink-dim); font-size:14px;}
+  .entry li{margin-top:6px;}
 
-  /* ---------- skills ---------- */
+  /* skills */
   .skill-groups{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-    border-radius:6px;
-    overflow:hidden;
+    gap:14px;
   }
-  .skill-card{background:var(--surface); padding:22px;}
-  .skill-card h4{
-    font-family:var(--font-mono);
-    font-size:12.5px;
-    color:var(--accent);
-    margin-bottom:12px;
-  }
-  .skill-card .chips{display:flex; flex-wrap:wrap; gap:8px;}
-  .chip{
-    font-size:12.5px;
-    color:var(--text-dim);
-    border:1px solid var(--line);
-    padding:5px 10px;
-    border-radius:4px;
-  }
+  .skill-card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:20px;}
+  .skill-card h4{font-size:13px; font-weight:700; color:var(--accent); margin-bottom:12px;}
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{font-size:12.5px; color:var(--ink-dim); background:var(--surface-2); border:1px solid var(--line); padding:5px 10px; border-radius:6px;}
 
-  /* ---------- certifications ---------- */
+  /* certifications */
   .cert-list{border-top:1px solid var(--line);}
-  .cert-row{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:14px 0;
-    border-bottom:1px solid var(--line);
-    font-size:14.5px;
-  }
-  .cert-row .name{color:var(--text);}
-  .cert-row .issuer{
-    font-family:var(--font-mono);
-    font-size:12px;
-    color:var(--text-faint);
-  }
+  .cert-row{display:flex; align-items:center; justify-content:space-between; padding:14px 0; border-bottom:1px solid var(--line); font-size:14.5px;}
+  .cert-row .issuer{font-size:12px; color:var(--ink-faint); font-weight:600;}
 
-  /* ---------- education ---------- */
-  .edu-row{
-    display:grid;
-    grid-template-columns:150px 1fr;
-    gap:24px;
-    padding:16px 0;
-  }
-  .edu-row .when{font-family:var(--font-mono); font-size:12.5px; color:var(--text-faint);}
-  .edu-row h4{font-size:15px; font-weight:600;}
-  .edu-row .org{font-size:13.5px; color:var(--text-dim); margin-top:2px;}
+  /* education */
+  .edu-row{display:grid; grid-template-columns:150px 1fr; gap:24px; padding:16px 0;}
+  .edu-row .when{font-size:13px; color:var(--ink-faint);}
+  .edu-row h4{font-size:15px; font-weight:700;}
+  .edu-row .org{font-size:13.5px; color:var(--ink-dim); margin-top:2px;}
 
-  /* ---------- footer / contact ---------- */
+  /* contact */
   footer{padding:56px 0 70px;}
-  footer h2{font-size:26px; font-weight:600; max-width:16ch;}
-  footer .sub{margin-top:12px; color:var(--text-dim); max-width:48ch; font-size:15px;}
-  footer .contact-grid{
-    margin-top:30px;
-    display:flex; flex-wrap:wrap; gap:14px;
-  }
-  footer .contact-grid a{
-    font-family:var(--font-mono);
-    font-size:13px;
-    border:1px solid var(--line);
-    padding:10px 16px;
-    border-radius:4px;
-    text-decoration:none;
+  footer h2{font-size:26px; font-weight:700; max-width:18ch;}
+  footer .sub{margin-top:12px; color:var(--ink-dim); max-width:48ch; font-size:15px;}
+  .contact-grid{margin-top:28px; display:flex; flex-wrap:wrap; gap:12px;}
+  .contact-card{
+    display:flex; align-items:center; gap:10px;
+    background:var(--surface); border:1px solid var(--line); border-radius:8px;
+    padding:12px 16px; text-decoration:none; font-size:14px; color:var(--ink);
     transition:border-color .15s;
   }
-  footer .contact-grid a:hover{border-color:var(--text-faint);}
-  footer .foot-note{
-    margin-top:48px;
-    font-family:var(--font-mono);
-    font-size:11.5px;
-    color:var(--text-faint);
+  .contact-card:hover{border-color:var(--accent);}
+  .contact-card .icon{
+    width:34px; height:34px; border-radius:6px;
+    background:var(--accent-soft); color:var(--accent);
+    display:flex; align-items:center; justify-content:center;
+    font-size:15px; flex-shrink:0;
   }
+  .contact-card .lbl{font-size:11px; color:var(--ink-faint); font-weight:600;}
+  .contact-card .val{font-weight:600;}
 
   @media (max-width:640px){
-    .hero h1{font-size:32px;}
-    .statusgrid{grid-template-columns:1fr 1fr;}
-    .statusgrid .cell:nth-child(2){border-right:none;}
-    .log-entry, .edu-row{grid-template-columns:1fr;}
+    .hero h1{font-size:30px;}
+    .statgrid{grid-template-columns:1fr 1fr;}
+    .entry, .edu-row{grid-template-columns:1fr;}
     .skill-groups{grid-template-columns:1fr;}
     .topbar nav{display:none;}
   }
@@ -287,11 +189,11 @@
 
 <div class="topbar">
   <div class="wrap">
-    <div class="id"><span class="dot"></span> robin-kp / status: open-to-work</div>
+    <div class="name">Robin K.P</div>
     <nav>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
-      <a href="#certifications">Certs</a>
+      <a href="#certifications">Certifications</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -299,44 +201,29 @@
 
 <div class="wrap">
 
-  <section class="hero" style="border-bottom:none;">
-    <div class="kicker">// it infrastructure &amp; systems engineer</div>
-    <h1>Robin K.P</h1>
-    <p class="role">IT Support &amp; Infrastructure Engineer — 10+ years keeping identity, endpoints, and networks running across defense, healthcare, and enterprise environments.</p>
+  <section class="hero" style="border-top:none;">
+    <span class="badge">Available for Opportunities</span>
+    <h1>IT Support &amp; Infrastructure Engineer</h1>
+    <p class="role">10+ years keeping identity, endpoints, and networks running across defense, healthcare, and enterprise environments.</p>
     <p class="summary">Currently an IT Service Desk Technician with V2X at a U.S. Air Force base in Iraq. Background spans Microsoft 365 and Azure/Entra ID administration, Intune device management, Active Directory, VMware/Hyper-V, and enterprise networking — with prior postings across Qatar, Baghdad, and India.</p>
     <div class="actions">
-      <a href="#contact" class="btn primary">Get in touch</a>
-      <a href="#experience" class="btn">View experience</a>
+      <a href="#contact" class="btn primary">Get in Touch</a>
+      <a href="#experience" class="btn secondary">View Experience</a>
     </div>
 
-    <div class="statusgrid">
-      <div class="cell">
-        <div class="num">10+</div>
-        <div class="label">years in IT infra &amp; support</div>
-      </div>
-      <div class="cell">
-        <div class="num">6</div>
-        <div class="label">roles across 4 countries</div>
-      </div>
-      <div class="cell">
-        <div class="num">9</div>
-        <div class="label">professional certifications</div>
-      </div>
-      <div class="cell">
-        <div class="num">Azure</div>
-        <div class="label">/ M365 / AD / VMware</div>
-      </div>
+    <div class="statgrid">
+      <div class="cell"><div class="num">10+</div><div class="label">years in IT infra &amp; support</div></div>
+      <div class="cell"><div class="num">6</div><div class="label">roles across 4 countries</div></div>
+      <div class="cell"><div class="num">9</div><div class="label">professional certifications</div></div>
+      <div class="cell"><div class="num">Azure</div><div class="label">/ M365 / AD / VMware</div></div>
     </div>
   </section>
 
   <section id="experience">
-    <div class="section-head">
-      <h2>Experience</h2>
-      <span class="tag">reverse chronological</span>
-    </div>
+    <div class="section-head"><h2>Experience</h2></div>
 
-    <div class="log-entry">
-      <div class="when">Jun 2026 — present<br><span class="current">current</span></div>
+    <div class="entry">
+      <div class="when">Jun 2026 — present<br><span class="current">Current</span></div>
       <div>
         <h3>IT Service Desk Technician</h3>
         <div class="org">V2X — Air Force Air Base, Balad, Iraq</div>
@@ -348,7 +235,7 @@
       </div>
     </div>
 
-    <div class="log-entry">
+    <div class="entry">
       <div class="when">—</div>
       <div>
         <h3>IT Specialist</h3>
@@ -360,7 +247,7 @@
       </div>
     </div>
 
-    <div class="log-entry">
+    <div class="entry">
       <div class="when">—</div>
       <div>
         <h3>IT Technical Support Engineer</h3>
@@ -372,7 +259,7 @@
       </div>
     </div>
 
-    <div class="log-entry">
+    <div class="entry">
       <div class="when">—</div>
       <div>
         <h3>IT Security Systems Associate</h3>
@@ -384,7 +271,7 @@
       </div>
     </div>
 
-    <div class="log-entry">
+    <div class="entry">
       <div class="when">—</div>
       <div>
         <h3>System Administrator</h3>
@@ -395,7 +282,7 @@
       </div>
     </div>
 
-    <div class="log-entry">
+    <div class="entry">
       <div class="when">—</div>
       <div>
         <h3>IT Support Engineer</h3>
@@ -408,10 +295,7 @@
   </section>
 
   <section id="skills">
-    <div class="section-head">
-      <h2>Technical skills</h2>
-      <span class="tag">by domain</span>
-    </div>
+    <div class="section-head"><h2>Technical Skills</h2></div>
     <div class="skill-groups">
       <div class="skill-card">
         <h4>CLOUD &amp; IDENTITY</h4>
@@ -452,41 +336,29 @@
   </section>
 
   <section id="certifications">
-    <div class="section-head">
-      <h2>Certifications</h2>
-      <span class="tag">9 active / completed</span>
-    </div>
+    <div class="section-head"><h2>Certifications</h2></div>
     <div class="cert-list">
-      <div class="cert-row"><span class="name">Azure Administrator Associate</span><span class="issuer">MICROSOFT</span></div>
-      <div class="cert-row"><span class="name">Microsoft 365 Modern Desktop Administrator Associate</span><span class="issuer">MICROSOFT</span></div>
-      <div class="cert-row"><span class="name">MCSE — Cloud Platform &amp; Infrastructure</span><span class="issuer">MICROSOFT</span></div>
-      <div class="cert-row"><span class="name">MCSE — Server Infrastructure</span><span class="issuer">MICROSOFT</span></div>
-      <div class="cert-row"><span class="name">MCSA</span><span class="issuer">MICROSOFT</span></div>
-      <div class="cert-row"><span class="name">MCP</span><span class="issuer">MICROSOFT</span></div>
-      <div class="cert-row"><span class="name">CompTIA A+</span><span class="issuer">COMPTIA</span></div>
-      <div class="cert-row"><span class="name">ISO/IEC 20000 &amp; 27001 Associate</span><span class="issuer">ISO</span></div>
-      <div class="cert-row"><span class="name">CCNA</span><span class="issuer">CISCO — course completed</span></div>
+      <div class="cert-row"><span>Azure Administrator Associate</span><span class="issuer">MICROSOFT</span></div>
+      <div class="cert-row"><span>Microsoft 365 Modern Desktop Administrator Associate</span><span class="issuer">MICROSOFT</span></div>
+      <div class="cert-row"><span>MCSE — Cloud Platform &amp; Infrastructure</span><span class="issuer">MICROSOFT</span></div>
+      <div class="cert-row"><span>MCSE — Server Infrastructure</span><span class="issuer">MICROSOFT</span></div>
+      <div class="cert-row"><span>MCSA</span><span class="issuer">MICROSOFT</span></div>
+      <div class="cert-row"><span>MCP</span><span class="issuer">MICROSOFT</span></div>
+      <div class="cert-row"><span>CompTIA A+</span><span class="issuer">COMPTIA</span></div>
+      <div class="cert-row"><span>ISO/IEC 20000 &amp; 27001 Associate</span><span class="issuer">ISO</span></div>
+      <div class="cert-row"><span>CCNA</span><span class="issuer">CISCO — course completed</span></div>
     </div>
   </section>
 
   <section>
-    <div class="section-head">
-      <h2>Education</h2>
-      <span class="tag">&nbsp;</span>
-    </div>
+    <div class="section-head"><h2>Education</h2></div>
     <div class="edu-row">
       <div class="when">2010 — 2013</div>
-      <div>
-        <h4>B.Sc. Electronics</h4>
-        <div class="org">Kannur University</div>
-      </div>
+      <div><h4>B.Sc. Electronics</h4><div class="org">Kannur University</div></div>
     </div>
     <div class="edu-row">
       <div class="when">2013 — 2014</div>
-      <div>
-        <h4>Diploma, Computer Hardware &amp; Network Engineering</h4>
-        <div class="org">Nirmalagiri College</div>
-      </div>
+      <div><h4>Diploma, Computer Hardware &amp; Network Engineering</h4><div class="org">Nirmalagiri College</div></div>
     </div>
   </section>
 
@@ -494,11 +366,19 @@
     <h2>Let's talk about your team's next hire.</h2>
     <p class="sub">Open to IT support, infrastructure, and systems administration roles. Reach out directly or connect on LinkedIn.</p>
     <div class="contact-grid">
-      <a href="mailto:your.email@example.com">your.email@example.com</a>
-      <a href="#">linkedin.com/in/your-profile</a>
-      <a href="tel:+000000000">+00 000 000 0000</a>
+      <a class="contact-card" href="mailto:robinlp456@hotmail.com">
+        <span class="icon">&#9993;</span>
+        <span><span class="lbl">EMAIL</span><br><span class="val">robinlp456@hotmail.com</span></span>
+      </a>
+      <a class="contact-card" href="https://wa.me/918129483892" target="_blank" rel="noopener">
+        <span class="icon">&#9742;</span>
+        <span><span class="lbl">PHONE / WHATSAPP</span><br><span class="val">+91 8129483892</span></span>
+      </a>
+      <a class="contact-card" href="https://www.linkedin.com/in/robin-k-p-77868ba3/" target="_blank" rel="noopener">
+        <span class="icon">in</span>
+        <span><span class="lbl">LINKEDIN</span><br><span class="val">robin-k-p-77868ba3</span></span>
+      </a>
     </div>
-    <div class="foot-note">sample build — replace placeholder contact details before publishing</div>
   </footer>
 
 </div>
